@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  node:
+    container_name: sandbox-angular
+    build:
+      context: ./docker-local/
+    ports:
+      - "4300:4200"
+    volumes:
+      - "./:/projects"
+    tty: true
