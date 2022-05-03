@@ -3,11 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeroesComponent } from './heroes/heroes.component';
+import { HeroesComponent } from './tutorial/hero/list/heroes.component';
 import { HeroDetailComponent } from './tutorial/hero/detail/hero-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { TutorialComponent } from './tutorial/tutorial.component';
-import { DashboardComponent } from './tutorial/dashboard/dashboard.component';
+import { DashboardComponent } from './tutorial/hero/dashboard/dashboard.component';
 
 
 @NgModule({

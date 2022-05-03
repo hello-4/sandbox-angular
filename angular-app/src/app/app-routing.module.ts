@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HeroDetailComponent } from './tutorial/hero/detail/hero-detail.component';
-import { HeroesComponent } from './heroes/heroes.component';
+import { HeroesComponent } from './tutorial/hero/list/heroes.component';
 import { CommonModule } from '@angular/common';
 import { TutorialComponent } from './tutorial/tutorial.component';
-import { DashboardComponent } from './tutorial/dashboard/dashboard.component';
+import { DashboardComponent } from './tutorial/hero/dashboard/dashboard.component';
 const routes: Routes = [
   {
     path: 'sandbox/tutorial/heros',
