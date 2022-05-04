@@ -91,6 +91,20 @@ export class HeroService {
       catchError(this.handleError<Hero>('delHero'))
     );
   }
+
+  searchHeroes(term: string): Observable<Hero[]> {
+    if (!term.trim()) {
+      // 입력된 내용이 없으면 빈 배열을 반환합니다.
+      return of([]);
+    }
+    return this.http.get<Hero[]>(`${this.heroesUrl}/?name=${term}`).pipe(
+      tap(x => x.length ?
+        this.log(`found heroes matching "${term}"`) :
+        this.log(`no heroes matching "${term}"`)),
+      catchError(this.handleError<Hero[]>('searchHeroes', []))
+    );
+  }
+
   private log(message: string) {
     this.messageService.add(`HeroService: ${message}`);
   }
