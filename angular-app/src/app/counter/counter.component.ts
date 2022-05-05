@@ -8,31 +8,35 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-counter',
   templateUrl: './counter.component.html',
-  styleUrls: ['./counter.component.css']
+  styleUrls: ['./counter.component.css'],
 })
 export class CounterComponent implements OnInit {
+  // type 1
+  count$;
 
-  // count$ = this.store.pipe(select(selectCount));
-  //count$: Observable<number>
-  count$: Observable<number>
+  // type 2
+  // count$: Observable<number>;
 
   //constructor(private store: Store<{ count: number }>) {
   constructor(private store: Store<State>) {
-    this.count$ = store.select('count');
-    // this.count$ = store.select(select(selectCount));
+    // type : 1
+    this.count$ = this.store.select(selectCount);
+
+    // type : 2
+    // this.count$ = store.select('count');
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   increment() {
     // this.count++;
+    console.log(this.store);
     this.store.dispatch(CounterActions.increment());
   }
 
   decrement() {
     // this.count--;
-    this.store.dispatch(CounterActions.decrement())
+    this.store.dispatch(CounterActions.decrement());
   }
 
   reset() {

@@ -1,9 +1,9 @@
 import { createAction } from '@ngrx/store';
 
 enum ACTIONS {
-    INCREMENT = '[Counter Component] increment',
-    DECREMENT = '[Counter Component] decrement',
-    REST = '[Counter Component] reset'
+  INCREMENT = '[Counter Component] increment',
+  DECREMENT = '[Counter Component] decrement',
+  REST = '[Counter Component] reset',
 }
 
 export const increment = createAction(ACTIONS.INCREMENT);
