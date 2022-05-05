@@ -14,6 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './services/in-memory-data.service';
 import { SearchComponent } from './tutorial/hero/search/search.component';
+// import { CounterComponent } from './counter/counter.component';
+import { CounterModule } from './counter/counter.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { SearchComponent } from './tutorial/hero/search/search.component';
     MessagesComponent,
     TutorialComponent,
     DashboardComponent,
-    SearchComponent
+    SearchComponent,
+    // CounterComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,8 @@ import { SearchComponent } from './tutorial/hero/search/search.component';
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
-    )
+    ),
+    CounterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

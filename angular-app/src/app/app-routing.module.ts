@@ -6,6 +6,7 @@ import { HeroesComponent } from './tutorial/hero/list/heroes.component';
 import { CommonModule } from '@angular/common';
 import { TutorialComponent } from './tutorial/tutorial.component';
 import { DashboardComponent } from './tutorial/hero/dashboard/dashboard.component';
+import { CounterComponent } from './counter/counter.component';
 const routes: Routes = [
   {
     path: 'sandbox/tutorial/heros',
@@ -23,6 +24,11 @@ const routes: Routes = [
     path: 'sandbox/tutorial/dashboard',
     pathMatch: 'full',
     component: DashboardComponent
+  },
+  {
+    path: 'sandbox/counter',
+    pathMatch: 'full',
+    component: CounterComponent
   }
 ];
 
