@@ -31,7 +31,9 @@ export class CounterComponent implements OnInit {
   increment() {
     // this.count++;
     console.log(this.store);
-    this.store.dispatch(CounterActions.increment());
+
+    this.store.dispatch(CounterActions.increment({ propA: 1, propB: 'str' }));
+    // this.store.dispatch(CounterActions.increment());
   }
 
   decrement() {
