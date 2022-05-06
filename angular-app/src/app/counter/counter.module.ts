@@ -9,11 +9,13 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
   declarations: [CounterComponent],
   imports: [
     CommonModule,
-    // type 2
-    StoreModule.forRoot({ [featureName]: counterReducer }),
 
     // type 1
-    //StoreModule.forRoot({ count: counterReducer }),
+    StoreModule.forRoot({ [featureName]: counterReducer }),
+
+    // type 2
+    // StoreModule.forRoot({ count: counterReducer }),
+
     StoreDevtoolsModule.instrument(),
   ],
   exports: [CounterComponent],

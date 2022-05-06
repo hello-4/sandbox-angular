@@ -1,9 +1,14 @@
 import { createReducer, on } from '@ngrx/store';
 import * as CounterActions from './counter.actions';
 
-export const featureName = 'count_feature_name';
+export const featureName = 'count_hoge';
+
+export interface user {
+  name: string;
+}
 export interface State {
   count: number;
+  users: user[];
 }
 
 /**
@@ -11,7 +16,9 @@ export interface State {
  */
 export const initialState: State = {
   count: 0,
+  users: [{ name: 'aa' }, { name: 'bb' }],
 };
+
 const _counterReducer = createReducer(
   initialState,
   on(CounterActions.increment, (state) => ({
