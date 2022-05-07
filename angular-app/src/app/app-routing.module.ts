@@ -7,33 +7,38 @@ import { CommonModule } from '@angular/common';
 import { TutorialComponent } from './tutorial/tutorial.component';
 import { DashboardComponent } from './tutorial/hero/dashboard/dashboard.component';
 import { CounterComponent } from './counter/counter.component';
+import { NgrxComponent } from './sandbox/ngrx/ngrx.component';
 const routes: Routes = [
   {
     path: 'sandbox/tutorial/heros',
-    component: HeroesComponent
+    component: HeroesComponent,
   },
   {
     path: 'sandbox/tutorial/hero/:id',
-    component: HeroDetailComponent
+    component: HeroDetailComponent,
   },
   {
     path: 'sandbox/tutorial',
-    component: TutorialComponent
+    component: TutorialComponent,
   },
   {
     path: 'sandbox/tutorial/dashboard',
     pathMatch: 'full',
-    component: DashboardComponent
+    component: DashboardComponent,
   },
   {
     path: 'sandbox/counter',
     pathMatch: 'full',
-    component: CounterComponent
-  }
+    component: CounterComponent,
+  },
+  {
+    path: 'sandbox/ngrx',
+    component: NgrxComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule, FormsModule]
+  exports: [RouterModule, FormsModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

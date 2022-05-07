@@ -1,7 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 import * as CounterActions from './counter.actions';
 
-export const featureName = 'count_hoge';
+export const featureName = 'count_hoge2';
 
 export interface user {
   name: string;

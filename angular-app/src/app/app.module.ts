@@ -10,12 +10,12 @@ import { TutorialComponent } from './tutorial/tutorial.component';
 import { DashboardComponent } from './tutorial/hero/dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 
-
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './services/in-memory-data.service';
 import { SearchComponent } from './tutorial/hero/search/search.component';
 // import { CounterComponent } from './counter/counter.component';
 import { CounterModule } from './counter/counter.module';
+import { SandboxModule } from './sandbox/sandbox.module';
 
 @NgModule({
   declarations: [
@@ -26,18 +26,18 @@ import { CounterModule } from './counter/counter.module';
     TutorialComponent,
     DashboardComponent,
     SearchComponent,
-    // CounterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    ),
-    CounterModule
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
+      dataEncapsulation: false,
+    }),
+    CounterModule,
+    SandboxModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,0 +1,19 @@
+<p>users list</p>
+
+<h3>Type A : from Observable</h3>
+<ul>
+  <li *ngFor="let user of users$ | async">
+    <span>id: {{ user.id }}</span
+    ><span>name :{{ user.name }}</span>
+  </li>
+</ul>
+
+<h3>Type B : from NGRX store</h3>
+<ul>
+  <li *ngFor="let user of usersStore$ | async">
+    <span>id: {{ user.id }}</span
+    ><span>name :{{ user.name }}</span>
+  </li>
+</ul>
+
+<button (click)="onClick()">click</button>
