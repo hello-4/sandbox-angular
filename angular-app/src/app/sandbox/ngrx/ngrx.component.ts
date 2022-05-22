@@ -22,8 +22,6 @@ export class NgrxComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    let aaa: User[];
-
     this.sandboxService.getUsers().subscribe((users) => {
       // from Observable
       this.users$ = of(users);
