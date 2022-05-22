@@ -3,43 +3,48 @@ import { Hero } from '../../../interfaces/hero';
 import { HeroService } from '../../../services/hero.service';
 import { MessageService } from '../../../services/message.service';
 import { Location } from '@angular/common';
+import { delay } from 'rxjs';
 @Component({
   selector: 'app-heroes',
   templateUrl: './heroes.component.html',
-  styleUrls: ['./heroes.component.css']
+  styleUrls: ['./heroes.component.css'],
 })
 export class HeroesComponent implements OnInit {
-
   constructor(
     private heroService: HeroService,
     private location: Location,
-    private messageService: MessageService) { }
+    private messageService: MessageService
+  ) {}
 
   selectedHero?: Hero;
   heroes: Hero[] = [];
-  heroName: string = "";
+  heroName: string = '';
   ngOnInit(): void {
     this.getHeroes();
   }
 
   getHeroes(): void {
-    // this.heroes = this.heroService.getHeroes();
-    this.heroService.getHeroes()
-      .subscribe(heroes => this.heroes = heroes);
+    console.log('get hero');
+    this.heroService
+      .getHeroes()
+      .pipe(delay(1000))
+      .subscribe((heroes) => (this.heroes = heroes));
   }
 
   add(name: string) {
     name = name.trim();
-    if (!name) { return; }
+    if (!name) {
+      return;
+    }
 
-    this.heroService.addHero({ name } as Hero)
-      .subscribe(hero => this.heroes.push(hero));
+    this.heroService
+      .addHero({ name } as Hero)
+      .subscribe((hero) => this.heroes.push(hero));
   }
 
   delete(hero: Hero) {
-    this.heroes = this.heroes.filter(h => h !== hero);
+    this.heroes = this.heroes.filter((h) => h !== hero);
     this.heroService.delHero(hero).subscribe();
-
   }
   goBack(): void {
     this.location.back();
@@ -56,4 +61,3 @@ export class HeroesComponent implements OnInit {
   //   this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`)
   // }
 }
-

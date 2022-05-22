@@ -1,9 +1,12 @@
 <h2>Top Heroes</h2>
 <button (click)="goBack()">go back</button>
 <div class="heroes-menu">
-    <a *ngFor="let hero of heroes" routerLink="/sandbox/tutorial/hero/{{hero.id}}">
-        {{hero.name}}
-    </a>
+  <a
+    *ngFor="let hero of heroes"
+    routerLink="/sandbox/tutorial/hero/detail/{{ hero.id }}"
+  >
+    {{ hero.name }}
+  </a>
 </div>
 <app-messages></app-messages>
 <!-- <router-outlet></router-outlet> -->

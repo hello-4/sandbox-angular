@@ -3,22 +3,18 @@ import { Hero } from '../../../interfaces/hero';
 import { HeroService } from '../../../services/hero.service';
 import { Observable, Subject } from 'rxjs';
 
-import {
-  debounceTime, distinctUntilChanged, switchMap
-} from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-hero-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
+  styleUrls: ['./search.component.css'],
 })
 export class SearchComponent implements OnInit {
-
   heroes$!: Observable<Hero[]>;
-
   private searchTerms = new Subject<string>();
 
-  constructor(private heroService: HeroService) { }
+  constructor(private heroService: HeroService) {}
 
   ngOnInit(): void {
     this.heroes$ = this.searchTerms.pipe(
@@ -29,7 +25,7 @@ export class SearchComponent implements OnInit {
       distinctUntilChanged(),
 
       // 검색어가 변경되면 새로운 옵저버블을 생성합니다.
-      switchMap((aaaTerm: string) => this.heroService.searchHeroes(aaaTerm)),
+      switchMap((aaaTerm: string) => this.heroService.searchHeroes(aaaTerm))
     );
   }
 

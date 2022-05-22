@@ -1,16 +1,19 @@
 <h2>My Heroes</h2>
 <button (click)="goBack()">go back</button>
 <ul class="heroes">
-    <!-- <li *ngFor="let hero of heroes" [class.selected]="hero === selectedHero" (click)="onSelect(hero)"> <span
+  <!-- <li *ngFor="let hero of heroes" [class.selected]="hero === selectedHero" (click)="onSelect(hero)"> <span
             class="badge">{{hero.id}}</span> {{hero.name}}</li> -->
-    <li *ngFor="let hero of heroes">
-        <a routerLink="/sandbox/tutorial/hero/{{hero.id}}">
-            <span class="badge">{{hero.id}}</span>{{hero.name}}
-        </a>
-        <button class="delete" (click)="delete(hero)" title="delete hero">X</button>
-    </li>
-    <input type="text" #heroName>
-    <button class="add-button" (click)="add(heroName.value); heroName.value=''">Add Hero</button>
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/sandbox/tutorial/hero/detail/{{ hero.id }}">
+      <span class="badge">{{ hero.id }}</span
+      >{{ hero.name }}
+    </a>
+    <button class="delete" (click)="delete(hero)" title="delete hero">X</button>
+  </li>
+  <input type="text" #heroName />
+  <button class="add-button" (click)="add(heroName.value); heroName.value = ''">
+    Add Hero
+  </button>
 </ul>
 <!-- <app-hero-detail [hero]="selectedHero"></app-hero-detail> -->
 <app-hero-search></app-hero-search>
